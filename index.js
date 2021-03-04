@@ -11,7 +11,6 @@ app.use(
         keys: ['lkasld235j']
     })
 );
-
 app.use(authRouter);
 
 app.listen(3000, () => {
