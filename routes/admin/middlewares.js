@@ -8,7 +8,8 @@ module.exports = {
             if (!errors.isEmpty()) {
                 return res.send(templateFunc({ errors }));
             }
+
             next();
-        }
+        };
     }
-}
+};

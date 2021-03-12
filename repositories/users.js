@@ -11,7 +11,7 @@ class UsersRepository extends Repository {
         // Supplied -> password given to us by a user trying sign in
         const [hashed, salt] = saved.split('.');
         const hashedSuppliedBuf = await scrypt(supplied, salt, 64);
-        console.log(hashed, salt)
+
         return hashed === hashedSuppliedBuf.toString('hex');
     }
 
@@ -20,7 +20,6 @@ class UsersRepository extends Repository {
 
         const salt = crypto.randomBytes(8).toString('hex');
         const buf = await scrypt(attrs.password, salt, 64);
-        console.log(salt, buf)
 
         const records = await this.getAll();
         const record = {

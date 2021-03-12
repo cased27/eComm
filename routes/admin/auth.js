@@ -28,7 +28,7 @@ router.post(
 
         req.session.userId = user.id;
 
-        res.redirect('/admin/products');
+        res.send('Account created!!!');
     }
 );
 
@@ -47,11 +47,12 @@ router.post(
     handleErrors(signinTemplate),
     async (req, res) => {
         const { email } = req.body;
+
         const user = await usersRepo.getOneBy({ email });
 
         req.session.userId = user.id;
 
-        res.redirect('/admin/products');
+        res.send('You are signed in!!!');
     }
 );
 
